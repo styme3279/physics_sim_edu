@@ -4,8 +4,7 @@
   <a href="README.md">English</a> | <a href="README.zh.md">中文</a>
 </div>
 
-SynthNova Physics Simulator 是一个基于 MuJoCo 物理引擎构建的机器人仿真框架。它为机器人研究、开发和测试提供了一个灵活的环境，具有真实的物理仿真能力。
-
+SynthNova Physics Simulator Edu是一个基于 MuJoCo 物理引擎构建的机器人仿真框架，专为教育用途设计的版本。
 
 ## ⚙️ 安装
 

@@ -17,12 +17,11 @@ pip install -e .
 
 ## 📖 文档
 
-生成并查看完整的API文档和教程：
+详细的文档可以在以下位置找到：
 
-```bash
-cd docs
-bash ./make_docs.sh
-```
+- [在线文档](https://galbot-ioai.github.io/physics_sim_edu/)
+- [API 参考](https://galbot-ioai.github.io/physics_sim_edu/rsts/api.html)
+- [示例](https://galbot-ioai.github.io/physics_sim_edu/rsts/examples.html)
 
 ## 📜 许可证
 

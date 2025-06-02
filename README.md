@@ -17,12 +17,12 @@ pip install -e .
 
 ## 📖 Documentation
 
-Generate and view the complete API documentation and tutorials:
+Detailed documentation can be found at:
 
-```bash
-cd docs
-bash ./make_docs.sh
-```
+- [Online Documentation](https://galbot-ioai.github.io/physics_sim_edu/)
+- [API Reference](https://galbot-ioai.github.io/physics_sim_edu/rsts/api.html)
+- [Examples](https://galbot-ioai.github.io/physics_sim_edu/rsts/examples.html)
+
 
 ## 📜 License
 

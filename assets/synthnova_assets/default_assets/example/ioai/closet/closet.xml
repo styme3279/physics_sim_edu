@@ -1,0 +1,100 @@
+<mujoco model="closet">
+  <default>
+    <default class="visual">
+      <geom group="1" type="mesh" contype="0" conaffinity="0"/>
+    </default>
+    <default class="collision">
+      <geom group="0" type="mesh"/>
+    </default>
+  </default>
+  <asset>
+    <texture type="2d" name="texture" file="texture.png"/>
+    <material name="material_0" texture="texture" specular="0.5" shininess="0.5"/>
+    <mesh name="closet" file="closet.obj"/>
+    <mesh name="closet_collision_0" file="closet_collision_0.obj"/>
+    <mesh name="closet_collision_1" file="closet_collision_1.obj"/>
+    <mesh name="closet_collision_2" file="closet_collision_2.obj"/>
+    <mesh name="closet_collision_3" file="closet_collision_3.obj"/>
+    <mesh name="closet_collision_4" file="closet_collision_4.obj"/>
+    <mesh name="closet_collision_5" file="closet_collision_5.obj"/>
+    <mesh name="closet_collision_6" file="closet_collision_6.obj"/>
+    <mesh name="closet_collision_7" file="closet_collision_7.obj"/>
+    <mesh name="closet_collision_8" file="closet_collision_8.obj"/>
+    <mesh name="closet_collision_9" file="closet_collision_9.obj"/>
+    <mesh name="closet_collision_10" file="closet_collision_10.obj"/>
+    <mesh name="closet_collision_11" file="closet_collision_11.obj"/>
+    <mesh name="closet_collision_12" file="closet_collision_12.obj"/>
+    <mesh name="closet_collision_13" file="closet_collision_13.obj"/>
+    <mesh name="closet_collision_14" file="closet_collision_14.obj"/>
+    <mesh name="closet_collision_15" file="closet_collision_15.obj"/>
+    <mesh name="closet_collision_16" file="closet_collision_16.obj"/>
+    <mesh name="closet_collision_17" file="closet_collision_17.obj"/>
+    <mesh name="closet_collision_18" file="closet_collision_18.obj"/>
+    <mesh name="closet_collision_19" file="closet_collision_19.obj"/>
+    <mesh name="closet_collision_20" file="closet_collision_20.obj"/>
+    <mesh name="closet_collision_21" file="closet_collision_21.obj"/>
+    <mesh name="closet_collision_22" file="closet_collision_22.obj"/>
+    <mesh name="closet_collision_23" file="closet_collision_23.obj"/>
+    <mesh name="closet_collision_24" file="closet_collision_24.obj"/>
+    <mesh name="closet_collision_25" file="closet_collision_25.obj"/>
+    <mesh name="closet_collision_26" file="closet_collision_26.obj"/>
+    <mesh name="closet_collision_27" file="closet_collision_27.obj"/>
+    <mesh name="closet_collision_28" file="closet_collision_28.obj"/>
+    <mesh name="closet_collision_29" file="closet_collision_29.obj"/>
+    <mesh name="closet_collision_30" file="closet_collision_30.obj"/>
+    <mesh name="closet_collision_31" file="closet_collision_31.obj"/>
+    <mesh name="closet_collision_32" file="closet_collision_32.obj"/>
+    <mesh name="closet_collision_33" file="closet_collision_33.obj"/>
+    <mesh name="closet_collision_34" file="closet_collision_34.obj"/>
+    <mesh name="closet_collision_35" file="closet_collision_35.obj"/>
+    <mesh name="closet_collision_36" file="closet_collision_36.obj"/>
+    <mesh name="closet_collision_37" file="closet_collision_37.obj"/>
+    <mesh name="closet_collision_38" file="closet_collision_38.obj"/>
+  </asset>
+  <worldbody>
+    <body>
+      <body name="object">
+        <geom material="material_0" mesh="closet" class="visual"/>
+        <geom mesh="closet_collision_0" rgba="0.33762147084390726 0.8419819731060794 0.8561656374292748 1" class="collision"/>
+        <geom mesh="closet_collision_1" rgba="0.5107787918885951 0.32475984812147995 0.45257289984659144 1" class="collision"/>
+        <geom mesh="closet_collision_2" rgba="0.19576290596804435 0.6221114259155092 0.7613427494410763 1" class="collision"/>
+        <geom mesh="closet_collision_3" rgba="0.13828223870846468 0.536194854977089 0.04956883449513494 1" class="collision"/>
+        <geom mesh="closet_collision_4" rgba="0.3296963072665292 0.9214708769229787 0.12474307394414696 1" class="collision"/>
+        <geom mesh="closet_collision_5" rgba="0.5802705555728439 0.5539925050230746 0.48930730602036754 1" class="collision"/>
+        <geom mesh="closet_collision_6" rgba="0.10980987610150639 0.5767826020898841 0.913240754710407 1" class="collision"/>
+        <geom mesh="closet_collision_7" rgba="0.911590419195673 0.4820673080925464 0.1809545015758901 1" class="collision"/>
+        <geom mesh="closet_collision_8" rgba="0.3741259649465508 0.9643218197915174 0.24851727713734428 1" class="collision"/>
+        <geom mesh="closet_collision_9" rgba="0.21758190441611014 0.1047892510712296 0.31313867105971993 1" class="collision"/>
+        <geom mesh="closet_collision_10" rgba="0.1488737543496118 0.1794227477642184 0.6401796868787378 1" class="collision"/>
+        <geom mesh="closet_collision_11" rgba="0.7645528429503251 0.32967712333909205 0.9868627146426765 1" class="collision"/>
+        <geom mesh="closet_collision_12" rgba="0.02950579701141265 0.17325285796902778 0.9058432157686361 1" class="collision"/>
+        <geom mesh="closet_collision_13" rgba="0.4595882770501454 0.21160701735387422 0.37701347507349536 1" class="collision"/>
+        <geom mesh="closet_collision_14" rgba="0.204553909683721 0.02664923550743048 0.288200680207261 1" class="collision"/>
+        <geom mesh="closet_collision_15" rgba="0.7894220673073785 0.6879616301081004 0.9590376197816567 1" class="collision"/>
+        <geom mesh="closet_collision_16" rgba="0.857551570204975 0.4218018573779585 0.522025638253784 1" class="collision"/>
+        <geom mesh="closet_collision_17" rgba="0.788721976282397 0.34333151943051754 0.5638490792642549 1" class="collision"/>
+        <geom mesh="closet_collision_18" rgba="0.8114839136950271 0.21837302182864105 0.4809239821291039 1" class="collision"/>
+        <geom mesh="closet_collision_19" rgba="0.07655564443708396 0.37067930978617014 0.727145986648082 1" class="collision"/>
+        <geom mesh="closet_collision_20" rgba="0.7159294737219905 0.38632166393016676 0.9884905331783614 1" class="collision"/>
+        <geom mesh="closet_collision_21" rgba="0.0947019005481814 0.6147194291177135 0.4698453703031551 1" class="collision"/>
+        <geom mesh="closet_collision_22" rgba="0.8037032746157506 0.6290571602008519 0.7279179696824212 1" class="collision"/>
+        <geom mesh="closet_collision_23" rgba="0.3913256695399031 0.8728362239682406 0.9368921229481809 1" class="collision"/>
+        <geom mesh="closet_collision_24" rgba="0.24328403868826254 0.8940578734699809 0.23977955571290877 1" class="collision"/>
+        <geom mesh="closet_collision_25" rgba="0.8858192698783991 0.5105068462718834 0.803889063664859 1" class="collision"/>
+        <geom mesh="closet_collision_26" rgba="0.535373194333864 0.9437558997942407 0.5559097979003205 1" class="collision"/>
+        <geom mesh="closet_collision_27" rgba="0.05085505501098053 0.9673649678359161 0.3265311407400895 1" class="collision"/>
+        <geom mesh="closet_collision_28" rgba="0.7249063603892844 0.4989090685517069 0.8139240314608819 1" class="collision"/>
+        <geom mesh="closet_collision_29" rgba="0.5936252202180168 0.9543912953161044 0.9245315043102776 1" class="collision"/>
+        <geom mesh="closet_collision_30" rgba="0.7698378734446475 0.7057900875799116 0.22866549712036244 1" class="collision"/>
+        <geom mesh="closet_collision_31" rgba="0.7603110057528516 0.019536438030362646 0.19277832318035315 1" class="collision"/>
+        <geom mesh="closet_collision_32" rgba="0.5048440858599409 0.213776454472419 0.601635142214458 1" class="collision"/>
+        <geom mesh="closet_collision_33" rgba="0.6221581957391217 0.5997706575267854 0.5634124744429587 1" class="collision"/>
+        <geom mesh="closet_collision_34" rgba="0.7642954431541191 0.433428959508676 0.10850122441977628 1" class="collision"/>
+        <geom mesh="closet_collision_35" rgba="0.7514019596094236 0.6956516997362591 0.49896384503121216 1" class="collision"/>
+        <geom mesh="closet_collision_36" rgba="0.7792563508052965 0.3508620848478877 0.8791720982405293 1" class="collision"/>
+        <geom mesh="closet_collision_37" rgba="0.08261979204254477 0.6213397422926822 0.2113042587874815 1" class="collision"/>
+        <geom mesh="closet_collision_38" rgba="0.8537930402441066 0.05660173326312623 0.7143260544667815 1" class="collision"/>
+      </body>
+    </body>
+  </worldbody>
+</mujoco>

@@ -1,0 +1,68 @@
+# Define the build system configuration.
+[build-system]
+# Specify the packages required for building the project.
+requires = ["hatchling"]
+# Set the build backend to use Hatchling.
+build-backend = "hatchling.build"
+
+# Define project metadata and configuration.
+[project]
+# Project name.
+name = "synthnova_config"
+# Short description of the project.
+description = """
+A configuration package for SynthNova simulation toolkit, 
+designed to provide a unified interface for configuring the toolkit.
+"""
+# Indicate that the version is determined dynamically.
+dynamic = ["version"]
+# Specify the README file and its format.
+readme = { file = "README.md", content-type = "text/markdown" }
+# Define the minimum supported Python version.
+requires-python = ">=3.10"
+# Specify the project's license identifier.
+# license = "LicenseRef-Galbot-Proprietary"
+# Include additional license files.
+license-files = ["LICENSE"]
+# Define the project authors.
+authors = [{ name = "Herman Ye", email = "hermanye233@icloud.com" }]
+# Define the project maintainers.
+maintainers = [{ name = "Herman Ye", email = "hermanye233@icloud.com" }]
+# List relevant keywords for discoverability.
+keywords = ["simulation", "robotics", "synthnova"]
+# Define mandatory dependencies required at runtime.
+dependencies = [
+    "pydantic>=2.10.6",
+    "numpydantic>=1.6.9",
+    "auro_utils>=0.0.8",
+    "numpy",
+    "toml",
+    "pytest",
+    "importlib_metadata",
+]
+
+# Configure Hatch to automatically determine the project version.
+[tool.hatch.version]
+# Define the file containing the version information.
+path = "src/synthnova_config/__init__.py"
+
+# Define external project-related URLs.
+[project.urls]
+# Official simulation platform URL.
+"Simulation Platform" = "https://simulation.galbot.com"
+# Official data platform URL.
+"Quasar Data Platform" = "https://data.galbot.com"
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/synthnova_config"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "/src/synthnova_config",
+    "/tests",
+    "/docs",
+    "/examples",
+]

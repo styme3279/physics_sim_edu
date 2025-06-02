@@ -6,7 +6,7 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'Physics Simulator'
+project = 'SynthNova Physics Simulator Edu'
 copyright = '2023-2025, Galbot Corporation.'
 author = 'Chenyu Cao'
 

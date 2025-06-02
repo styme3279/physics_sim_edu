@@ -411,12 +411,49 @@ Accessing RGB, depth, and point cloud data from robot-mounted cameras.
 - ``examples/galbot_interface_examples/sensors/left_wrist_camera.py`` - Left wrist camera
 - ``examples/galbot_interface_examples/sensors/right_wrist_camera.py`` - Right wrist camera
 
-Additional Examples
+IOAI Demo Examples
 -------------------
 
 The examples directory also contains other specialized examples:
 
-- ``examples/import_and_export_scenario_config/`` - Scenario import/export examples
 - ``examples/ioai/`` - IOAI demo examples
     - ``examples/ioai/ioai_grasp_demo.py`` - Basic pick and place demo using a simple state machine
     - ``examples/ioai/ioai_nav_demo.py`` - Navigation demo using A* pathfinding algorithm
+
+IOAI Grasp Demo
+^^^^^^^^^^^^^^^
+
+This example demonstrates a basic pick and place task using a simple state machine. The robot performs the following sequence:
+
+1. Move to a pre-grasp position
+2. Open the gripper
+3. Move to the object
+4. Close the gripper to grasp the object
+5. Lift the object
+6. Move to the target position
+7. Open the gripper to release the object
+
+.. raw:: html
+
+    <video width="640" height="360" controls>
+        <source src="../_static/videos/ioai_grasp_demo.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+IOAI Navigation Demo
+^^^^^^^^^^^^^^^^^^^^
+
+This example showcases autonomous navigation using the A* pathfinding algorithm. The robot:
+
+1. Receives a target position
+2. Plans a path using A* algorithm
+3. Follows the planned path while avoiding obstacles
+4. Reaches the target position
+
+.. raw:: html
+
+    <video width="640" height="360" controls>
+        <source src="../_static/videos/ioai_nav_demo.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+

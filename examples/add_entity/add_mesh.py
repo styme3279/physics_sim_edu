@@ -42,41 +42,22 @@ def main():
     # Add default scene
     synthnova_physics_simulator.add_default_scene()
 
-    # Add robot
-    robot_config = RobotConfig(
-        prim_path="/World/Galbot",
-        name="galbot_one_charlie",
+    # Add table
+    table_config = MeshConfig(
+        prim_path="/World/Table",
         mjcf_path=Path()
-            .joinpath(synthnova_physics_simulator.synthnova_assets_directory)
-            .joinpath("synthnova_assets")
-            .joinpath("robot")
-            .joinpath("galbot_one_charlie_description")
-            .joinpath("galbot_one_charlie.xml"),
-        position=[0, 0, 0],
-        orientation=[0, 0, 0, 1]
+        .joinpath(synthnova_physics_simulator.synthnova_assets_directory)
+        .joinpath("synthnova_assets")
+        .joinpath("default_assets")
+        .joinpath("example")
+        .joinpath("ioai")
+        .joinpath("table")
+        .joinpath("table.xml"),
+        position=[0.65, 0, 0],
+        orientation=[0, 0, 0.70711, -0.70711],
+        scale=[0.5, 0.7, 0.5]
     )
-    synthnova_physics_simulator.add_robot(robot_config)
-
-    # Add a shelf mesh
-    shelf_config = MeshConfig(
-        prim_path="/World/Shelf",
-        name="shelf",
-        mjcf_path=Path()
-            .joinpath(synthnova_physics_simulator.synthnova_assets_directory)
-            .joinpath("synthnova_assets")
-            .joinpath("default_assets")
-            .joinpath("example")
-            .joinpath("shelf_scene")
-            .joinpath("shelves")
-            .joinpath("1")
-            .joinpath("model")
-            .joinpath("mjcf")
-            .joinpath("convex_decomposition.xml"),
-        position=[0.55, 0, 0],
-        orientation=[0, 0, 0, 1],
-        scale=[1.0, 1.0, 1.0]
-    )
-    synthnova_physics_simulator.add_object(shelf_config)
+    synthnova_physics_simulator.add_object(table_config)
 
     # Initialize the simulator
     synthnova_physics_simulator.initialize()

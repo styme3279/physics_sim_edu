@@ -16,9 +16,9 @@ class TestWorld:
         """Test world initialization with XML loading."""
         mock_exists.return_value = True
         
-        from physics_simulator.world.world import World
+        from physics_simulator.world.world import MujocoWorld
         
-        world = World()
+        world = MujocoWorld()
         assert world is not None
 
     @patch('builtins.open', new_callable=mock_open, read_data='<mujoco><worldbody></worldbody></mujoco>')
@@ -27,10 +27,10 @@ class TestWorld:
         """Test getting model in MuJoCo mode."""
         mock_exists.return_value = True
         
-        from physics_simulator.world.world import World
+        from physics_simulator.world.world import MujocoWorld
         
-        world = World()
-        model = world.get_model(mode="mujoco")
+        world = MujocoWorld()
+        model = str(world)
         
         # Should return the XML string content
         assert isinstance(model, str)
@@ -41,11 +41,12 @@ class TestWorld:
         with patch('builtins.open', new_callable=mock_open), \
              patch('pathlib.Path.exists', return_value=True):
             
-            from physics_simulator.world.world import World
-            world = World()
+            from physics_simulator.world.world import MujocoWorld
+            world = MujocoWorld()
             
-            with pytest.raises(ValueError, match="Unsupported mode"):
-                world.get_model(mode="invalid_mode")
+            # Test update_attribute with invalid tag
+            with pytest.raises(ValueError, match="Invalid tag"):
+                world.update_attribute("test", "value", tag="invalid_tag")
 
     @patch('builtins.open', new_callable=mock_open)
     @patch('pathlib.Path.exists')
@@ -53,11 +54,11 @@ class TestWorld:
         """Test handling of missing XML file."""
         mock_exists.return_value = False
         
-        from physics_simulator.world.world import World
+        from physics_simulator.world.world import MujocoWorld
         
         # Should handle missing file gracefully or raise appropriate error
         with pytest.raises((FileNotFoundError, IOError)):
-            World()
+            MujocoWorld()
 
     def test_world_with_custom_xml_path(self):
         """Test world initialization with custom XML path."""
@@ -66,10 +67,10 @@ class TestWorld:
         with patch('builtins.open', new_callable=mock_open, read_data=custom_xml), \
              patch('pathlib.Path.exists', return_value=True):
             
-            from physics_simulator.world.world import World
+            from physics_simulator.world.world import MujocoWorld
             
-            world = World()
-            model = world.get_model(mode="mujoco")
+            world = MujocoWorld()
+            model = str(world)
             
             assert "plane" in model
             assert "ground" in model 

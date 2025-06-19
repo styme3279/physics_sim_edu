@@ -19,7 +19,7 @@ def basic_config():
     """Create basic physics simulator configuration for testing."""
     config = PhysicsSimulatorConfig()
     config.mujoco_config = MujocoConfig(headless=True)
-    config.logger_config = LoggerConfig(level="ERROR")  # Reduce log output during tests
+    config.logger_config = LoggerConfig()  # Use default logger config
     return config
 
 

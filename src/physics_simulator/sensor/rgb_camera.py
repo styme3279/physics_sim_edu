@@ -29,7 +29,7 @@
 
 from typing import TYPE_CHECKING
 
-from physics_simulator import PhysicsSimulator as GalbotEduSim
+from physics_simulator.simulator import MujocoSimulator as PhysicsSimulator
 from synthnova_config import RgbCameraConfig
 import numpy as np
 
@@ -65,7 +65,7 @@ class MujocoRgbCamera:
     parameters, and coordinate transformations between different conventions.
     """
 
-    def __init__(self, simulator: GalbotEduSim, camera_config: RgbCameraConfig):
+    def __init__(self, simulator: PhysicsSimulator, camera_config: RgbCameraConfig):
         """Initialize an RGB camera in the MuJoCo simulation.
         
         Args:

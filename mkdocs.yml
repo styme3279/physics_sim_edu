@@ -1,0 +1,113 @@
+# Herman Ye@Galbot Created on 2025-06-14
+
+########################### Edit these lines for your project #######################
+site_name: Synthnova Physics Simulator
+site_url: https://synthnova.galbot.com/physics_simulator
+repo_name: Physics Simulator
+repo_url: https://git.galbot.com/synth_nova/physics_simulator
+
+########################### Do not modify below this line ###########################
+theme:
+  name: material
+  logo: images/synthnova_logo.svg
+  icon:
+    repo: fontawesome/brands/git-alt
+  font:
+    code: Fira Code
+    text: Fira Sans
+  palette:
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      scheme: synthnova_light
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: synthnova_light
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to dark mode
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: synthnova_dark
+      toggle:
+        icon: material/weather-night
+        name: Switch to system preference
+  features:
+    - content.code.copy
+    - content.code.annotate
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.details
+  - admonition
+  - attr_list
+  - md_in_html
+  - def_list
+
+copyright: Copyright &copy; 2023-2025 Galbot. All rights reserved.
+
+extra_css:
+  - stylesheets/extra.css
+
+plugins:
+  - search
+  - mkdocstrings:
+      default_handler: python
+      handlers:
+        python:
+          options:
+            docstring_style: google
+            docstring_options:
+              trim_doctest_flags: true
+            show_source: true
+            show_root_heading: true
+            show_category_heading: true
+            show_if_no_docstring: true
+            show_signature_annotations: true
+            show_bases: true
+            show_submodules: true
+            heading_level: 2
+            merge_init_into_class: true
+            docstring_section_style: table
+            members_order: source
+            show_signature: true
+            extra:
+              show_signature_return_annotation: true
+
+extra:
+  alternate:
+    - name: English
+      link: /en/
+      lang: en
+    - name: 中文
+      link: /zh/
+      lang: zh
+  generator: false
+  features:
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.path
+    - navigation.top
+    - toc.follow
+    - toc.integrate
+    - search.highlight
+    - search.share
+  social:
+    - icon: fontawesome/brands/gitlab
+      link: https://git.galbot.com/synth_nova
+      name: Synthnova Simulation Toolchain
+    - icon: fontawesome/brands/github
+      link: https://github.com/GalaxyGeneralRobotics
+    - icon: fontawesome/brands/bilibili
+      link: https://space.bilibili.com/3546595559737798?spm_id_from=333.337.search-card.all.click

@@ -43,6 +43,23 @@ import numpy as np
 import cv2
 
 from pathlib import Path
+import open3d as o3d
+
+def visualize_point_cloud(point_cloud_data):
+    """Simple point cloud visualization with Open3D."""
+    if point_cloud_data is None or len(point_cloud_data) == 0:
+        print("No point cloud data to visualize")
+        return
+    
+    # Create Open3D point cloud
+    pcd = o3d.geometry.PointCloud()
+    pcd.points = o3d.utility.Vector3dVector(point_cloud_data)
+    
+    # Add coordinate frame
+    coordinate_frame = o3d.geometry.TriangleMesh.create_coordinate_frame(size=0.1)
+    
+    # Visualize
+    o3d.visualization.draw_geometries([pcd, coordinate_frame])
 
 def main():
     """Main function to set up and run the left wrist camera example."""
@@ -148,10 +165,16 @@ def main():
         cv2.imshow("RGB Camera", cv2.cvtColor(rgb_data, cv2.COLOR_RGB2BGR))
         cv2.imshow("Depth Camera", depth_data)
 
-        # Wait for 1ms and check for 'q' key to quit
-        if cv2.waitKey(1) & 0xFF == ord("q"):
+        # Check for key presses
+        key = cv2.waitKey(1) & 0xFF
+        if key == ord("q"):
             cv2.destroyAllWindows()
             break
+        elif key == ord("p"):
+            # Press 'p' to show point cloud
+            print("Showing point cloud")
+            point_cloud_data = galbot_interface.left_wrist_camera.get_point_cloud_wrt_robot()
+            visualize_point_cloud(point_cloud_data)
 
     # Get camera parameters
     params = galbot_interface.left_wrist_camera.get_parameters()

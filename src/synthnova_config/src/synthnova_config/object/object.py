@@ -30,7 +30,7 @@
 from typing import Optional, Dict, Any, List, Tuple, Literal
 from pydantic import BaseModel, Field, ConfigDict, field_validator, model_validator
 import numpy as np
-from pathlib import PosixPath
+from pathlib import PosixPath, WindowsPath
 from numpydantic import NDArray, Shape
 from enum import Enum
 import uuid
@@ -126,14 +126,14 @@ class ObjectConfig(BaseModel):
     It defines common properties and behaviors shared across different object types.
 
     Attributes:
-        prim_path (str | PosixPath): The unique primitive path in the scene graph hierarchy.
+        prim_path (str | PosixPath | WindowsPath): The unique primitive path in the scene graph hierarchy.
         type (ObjType | None): The type of object (mesh, mjcf, capsule, cone, cuboid, cylinder, or sphere).
         name (str | None): A human-readable identifier for the entity instance.
         uuid (str | None): A unique identifier for the entity instance.
-        usd_path (str | PosixPath | None): Path to the USD (Universal Scene Description) file.
-        obj_path (str | PosixPath | None): Path to the Wavefront OBJ mesh file.
-        mjcf_path (str | PosixPath | None): Path to the MuJoCo XML configuration file.
-        urdf_path (str | PosixPath | None): Path to the URDF file for articulated objects.
+        usd_path (str | PosixPath | WindowsPath | None): Path to the USD (Universal Scene Description) file.
+        obj_path (str | PosixPath | WindowsPath | None): Path to the Wavefront OBJ mesh file.
+        mjcf_path (str | PosixPath | WindowsPath | None): Path to the MuJoCo XML configuration file.
+        urdf_path (str | PosixPath | WindowsPath | None): Path to the URDF file for articulated objects.
         position (NDArray[Shape["3"], np.float64] | None): Global position vector [x, y, z] in world coordinates.
         orientation (NDArray[Shape["4"], np.float64] | None): Global orientation quaternion [x, y, z, w] in world coordinates.
         translation (NDArray[Shape["3"], np.float64] | None): Local position vector [x, y, z] relative to parent.
@@ -150,16 +150,16 @@ class ObjectConfig(BaseModel):
         but not both simultaneously.
     """
 
-    prim_path: str | PosixPath
+    prim_path: str | PosixPath | WindowsPath
     type: ObjType | None = None
     name: str | None = None
     uuid: str | None = Field(
         default_factory=lambda: str(uuid.uuid4()).replace("-", "_")
     )
-    usd_path: str | PosixPath | None = None
-    obj_path: str | PosixPath | None = None
-    mjcf_path: str | PosixPath | None = None
-    urdf_path: str | PosixPath | None = None
+    usd_path: str | PosixPath | WindowsPath | None = None
+    obj_path: str | PosixPath | WindowsPath | None = None
+    mjcf_path: str | PosixPath | WindowsPath | None = None
+    urdf_path: str | PosixPath | WindowsPath | None = None
     position: NDArray[Shape["3"], np.float64] | None = None
     orientation: NDArray[Shape["4"], np.float64] | None = None
     translation: NDArray[Shape["3"], np.float64] | None = None
@@ -197,7 +197,7 @@ class ObjectConfig(BaseModel):
     )
     @classmethod
     def process_object_config_different_input_path(
-        cls, value: str | PosixPath | None
+        cls, value: str | PosixPath | WindowsPath | None
     ) -> str | None:
         """Convert paths to absolute string paths."""
         return convert_to_abs_str_path(value)
@@ -580,11 +580,11 @@ class   SphereConfig(ObjectConfig):
         return value
 
 
-def convert_to_abs_str_path(value: str | PosixPath | None) -> str | None:
+def convert_to_abs_str_path(value: str | PosixPath | WindowsPath | None) -> str | None:
     """Convert paths to absolute string paths.
 
     Args:
-        value: Path to convert, can be string, PosixPath, or None
+        value: Path to convert, can be string, PosixPath, WindowsPath, or None
 
     Returns:
         str | None: Absolute path as string, or None if input is None
@@ -599,6 +599,8 @@ def convert_to_abs_str_path(value: str | PosixPath | None) -> str | None:
             raise ValueError("Path cannot be empty")
         return value
     elif isinstance(value, PosixPath):
+        return str(value.absolute())
+    elif isinstance(value, WindowsPath):
         return str(value.absolute())
     else:
         raise ValueError(f"Invalid path type: {type(value)}")

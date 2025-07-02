@@ -28,7 +28,7 @@
 #####################################################################################
 from typing import Optional, Dict, Any, List, Literal, Union, Tuple
 from pydantic import BaseModel, Field, ConfigDict, field_validator, model_validator
-from pathlib import PosixPath
+from pathlib import PosixPath, WindowsPath
 import numpy as np
 from numpydantic import NDArray, Shape
 from typing_extensions import Self
@@ -45,13 +45,13 @@ class RobotConfig(BaseModel):
     This class serves as the foundation for configuring robots in the SynthNova simulation environment.
 
     Attributes:
-        prim_path (str | PosixPath): The unique primitive path in the scene graph hierarchy.
+        prim_path (str | PosixPath | WindowsPath): The unique primitive path in the scene graph hierarchy.
         name (str | None): A human-readable identifier for the object instance.
         uuid (str | None): A unique identifier for the object instance.
-        usd_path (str | PosixPath | None): Path to the USD (Universal Scene Description) file.
-        mjcf_path (str | PosixPath | None): Path to the MuJoCo XML configuration file.
-        urdf_path (str | PosixPath | None): Path to the URDF file for robot kinematics.
-        srdf_path (str | PosixPath | None): Path to the SRDF file for robot semantic information.
+        usd_path (str | PosixPath | WindowsPath | None): Path to the USD (Universal Scene Description) file.
+        mjcf_path (str | PosixPath | WindowsPath | None): Path to the MuJoCo XML configuration file.
+        urdf_path (str | PosixPath | WindowsPath | None): Path to the URDF file for robot kinematics.
+        srdf_path (str | PosixPath | WindowsPath | None): Path to the SRDF file for robot semantic information.
         position (NDArray[Shape["3"], np.float64] | None): Global position vector [x, y, z] in world coordinates.
         orientation (NDArray[Shape["4"], np.float64] | None): Global orientation quaternion [x, y, z, w] in world coordinates.
         translation (NDArray[Shape["3"], np.float64] | None): Local position vector [x, y, z] relative to parent.

@@ -81,15 +81,15 @@ class RobotConfig(BaseModel):
         ```
     """
 
-    prim_path: str | PosixPath
+    prim_path: str | PosixPath | WindowsPath
     name: str | None = None
     uuid: str | None = Field(
         default_factory=lambda: str(uuid.uuid4()).replace("-", "_")
     )
-    usd_path: str | PosixPath | None = None
-    mjcf_path: str | PosixPath | None = None
-    urdf_path: str | PosixPath | None = None
-    srdf_path: str | PosixPath | None = None
+    usd_path: str | PosixPath | WindowsPath | None = None
+    mjcf_path: str | PosixPath | WindowsPath | None = None
+    urdf_path: str | PosixPath | WindowsPath | None = None
+    srdf_path: str | PosixPath | WindowsPath | None = None
     position: NDArray[Shape["3"], np.float64] | None = None
     orientation: NDArray[Shape["4"], np.float64] | None = None
     translation: NDArray[Shape["3"], np.float64] | None = None
@@ -146,7 +146,7 @@ class RobotConfig(BaseModel):
     )
     @classmethod
     def process_object_config_different_input_path(
-        cls, value: str | PosixPath | None
+        cls, value: str | PosixPath | WindowsPath | None
     ) -> str | None:
         """Convert paths to absolute string paths.
 
@@ -154,8 +154,8 @@ class RobotConfig(BaseModel):
         It handles string paths, PosixPath objects, and None values.
 
         Args:
-            value (str | PosixPath | None): Path to convert.
-                Can be a string path, PosixPath object, or None.
+            value (str | PosixPath | WindowsPath | None): Path to convert.
+                Can be a string path, PosixPath object, WindowsPath object, or None.
 
         Returns:
             str | None: Absolute path as string, or None if input is None.
